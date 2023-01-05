@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <title>Aplikasi diagnosis kanker Payudara</title>
+  </head>
+  <body class="flex flex-col justify-center item-center p-8 min-h-screen bg-gradient-to-r from-green-400 to-blue-500 text-gray-800 md:flex-row">
+    <main class="bg-white p-16 rounded-lg">
+      
+      <form action="{{ url_for('predict')}}" method="post">
+        <h2 class="container-heading"><span class="heading_font">HASIL DIAGNOSIS KANKER PAYUDARA</span></h2>
+
+        <br /><br /><br /><br />
+
+        <!-- Result -->
+        <div style="color: black" class="results">
+          {% if prediction==1 %}
+          <h1>
+            <span class="danger">Astagfirullah! 🙁<br /><br />kamu di diagnosis menderita kanker payudara<br /><br />Tolong segera Konsul Ke Dokter Terdekat.</span>
+          </h1>
+
+          {% elif prediction==0 %}
+          <h1>
+            <span class="safe">ALHAMDULILLAH<br /><br />kamu tidak terkena kanker payudara.</span>
+          </h1>
+          {% endif %}
+        </div>
+      </form>
+    </div>
+    
+    </main>
+  </body>
+</html>
